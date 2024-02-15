@@ -1,0 +1,220 @@
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Fredoka", sans-serif;
+}
+
+
+.container{
+    position: relative;
+    display: flex;
+    width : 1920px ;
+    height: 1080px;
+    justify-content: center;
+    align-items: center;
+}
+
+#head-title {
+    animation: idle ;
+}
+
+@keyframes idle {
+    100% {}
+  }
+
+
+#meme-1{
+    scale: 1;
+    animation: idle;
+    filter: hue-rotate(0deg) ;
+    transition: filter 0.5s;
+}
+.meme-1{
+    position: absolute;
+    top : 10% ;
+    width: 240px;
+    height: 172px;
+    border-radius: 25px;
+    border: solid 3px black;
+    animation: idle;
+    transition: filter 0.5s;
+}
+
+.figure-login {
+    display: grid;
+    grid-template-rows:33% 33% 33%;
+    width: 460px;
+    height: 620px;
+    padding: 20px;
+    outline: solid 10px black;
+    border: solid 10px gray;
+    border-radius: 50px;
+}
+
+.figure-login *:not(div.btn-layout,h6) {
+    display: grid;
+    justify-content: center;
+}
+.figure-login h1{
+    font-size: 4rem;
+    align-items: center;
+}
+.figure-login h6{
+    font-size: 0.9rem;
+    align-items: center;
+}
+
+.form-layout{
+    display: grid ;
+    grid-template-rows: 10% 40% 10% 40%;
+}
+
+.form-layout input{
+    padding: 2px;
+    scale: 1;
+    height:30px;
+    border-radius: 5px;
+    border: solid 2px gray;
+    font-size: 1.13rem;
+    text-align: start;
+    align-items: center;
+}
+.form-layout input:hover{
+    scale: 1.05 ;
+    transition: scale 0.5s;
+}
+
+.form-layout input:active{
+    scale: 20 ;
+    transition: scale 40s;
+}
+
+.btn-layout{
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-template-rows: auto;
+    justify-content:space-around ;
+    align-items: center;
+}
+
+.btn-layout  button {
+    display: block;
+    width: 100%;
+}
+
+.btn-layout *{
+    font-size: 1.2rem;
+}
+
+.btn-login-1{
+    scale: 1;
+    rotate: 0deg;
+    border: solid 0px rgb(0, 255, 0);
+    border-radius: 10px;
+    background-color: rgb(0,255,0);
+    color: rgb(255,255,255);
+    transition: background-color 0.5s , color 0.3s,scale 1s,border 0.5s;
+}
+.btn-login-1:hover{
+    scale: 1.1;
+    border: solid 2px rgb(0, 255, 0);
+    background-color: rgb(255,255,255);
+    color: rgb(0,255,0);
+    transition: background-color 0.5s , color 0.3s , scale 1s,border 1s;
+    animation: tilt-shaking 0.7s ;
+    animation-timing-function : ease-in-out ;
+}
+.btn-login-1:active{
+    scale: 40;
+    rotate: 3600deg;
+    transition: scale 40s ,rotate 40s;
+}
+
+
+.btn-login-2{
+    scale: 1;
+    rotate: 0deg;
+    border-radius: 10px;
+    background-color: rgb(255,255,255);
+    color: rgb(0,255,0);
+    transition: background-color 0.5s , color 0.3s,scale 1s,text-decoration 0.5s;
+    text-decoration:underline ;
+}
+
+.btn-login-2:hover{
+    scale: 1.1;
+    background-color: rgb(100,255,100);
+    color: rgb(255,255,255);
+    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    text-decoration:none;
+    animation: tilt-shaking 0.7s ;
+}
+
+.btn-login-2:active{
+    scale: 40;
+    rotate: 3600deg;
+    transition: scale 40s ,rotate 40s;
+}
+
+.btn-login-3{
+    scale: 1;
+    rotate: 0deg;
+    border: solid  rgb(0, 255, 0);
+    border-radius: 10px;
+    background-color: rgb(0,255,0);
+    color: rgb(255,255,255);
+    border-width: 0px;
+    transition: background-color 0.5s , color 0.3s,scale 1s,border 0.5s;
+}
+
+.btn-login-3:hover{
+    scale: 1.1;
+    border: solid  rgb(0, 255, 0);
+    background-color: rgb(255,255,255);
+    color: rgb(0,255,0);
+    border-width: 2px;
+    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    animation: tilt-shaking 0.7s ;
+}
+
+.btn-login-4{
+    scale: 1;
+    rotate: 0deg;
+    border: solid rgb(255, 0, 0);
+    border-radius: 10px;
+    background-color: rgb(255,0,0);
+    color: rgb(255,255,255);
+    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    border-width: 0px;
+}
+
+.btn-login-4:hover{
+    scale: 1.1;
+    border: solid rgb(255, 0, 0);
+    background-color: rgb(255,255,255);
+    color: rgb(255,0,0);
+    border-width: 2px;
+    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    text-decoration:none;
+    animation: tilt-shaking 0.7s ;
+}
+
+.btn-layout button{
+    font-weight: 1000;
+    border: none;
+    width: 150px;
+    height: 48px;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+@keyframes tilt-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, 5px) rotate(5deg); }
+  50% { transform: translate(0, 0) rotate(0eg); }
+  75% { transform: translate(-5px, 5px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+  }
