@@ -1,13 +1,11 @@
 const Default_user = "CPEadmin"
 const Default_pass = "1234"
 
-
 const btnLayout = document.querySelector('.btn-layout');
 const btnLogin1 = document.querySelector('.btn-login-1');
 const btnLogin2 = document.querySelector('.btn-login-2');
 const btnLogin3 = document.querySelector('.btn-login-3');
 const btnLogin4 = document.querySelector('.btn-login-4');
-
 
 const user = document.getElementById('Username') ;
 const pass = document.getElementById('Password') ;
@@ -17,21 +15,14 @@ let removedButtons = [];
 
 let isLogin = true ;
 let isRegister = false ;
-let isConfirm = false ;
-let isCancel = false ;
-
 
 let user_pass_list = []
-
-
-
 function removeBtn(btn1,btn2){
     removedButtons.push(btn2);
     removedButtons.push(btn1);
     btnLayout.removeChild(btn2);
     btnLayout.removeChild(btn1);
 }
-
 function swapBtn(btn1,btn2) {
     let tmp = [] ;
     for(let i = 0 ; removedButtons.length > 0 ; i += 1){
@@ -42,8 +33,6 @@ function swapBtn(btn1,btn2) {
         btnLayout.appendChild(tmp.pop());
     }
 }
-
-
 function passwordVerify(user,pass){
     for(let i = 0 ; i < user_pass_list.length ; i += 1){
         if(user_pass_list[i].user === user.value && user_pass_list[i].pass === pass.value){
@@ -53,8 +42,6 @@ function passwordVerify(user,pass){
         }
     }
 }
-
-
 function trigger_animation(id){
     document.getElementById(id).animate(
         [
@@ -65,7 +52,6 @@ function trigger_animation(id){
         ],  {duration : 100 }
     )
 }
-
 function trigger_animationem(em){
     em.animate(
         [
@@ -76,10 +62,6 @@ function trigger_animationem(em){
         ],  {duration : 100 }
     )
 }
-
-
-
-
 function event_login() {
     if(isRegister){
         document.getElementById("head-title").innerHTML = "LOGIN" ;
@@ -100,7 +82,6 @@ function event_login() {
     }
     user.value = "" , pass.value = "" ;
 }
-
 function event_Register() {
     user.value = "" , pass.value = "";
     if(isLogin){
@@ -111,7 +92,6 @@ function event_Register() {
         swapBtn(btnLogin1,btnLogin2);
     }
 }
-
 function event_Cancel() {
     user.value = "" , pass.value = "";
     if(isRegister){
@@ -151,7 +131,6 @@ function event_Confirm() {
         }
     }
 }
-
 
 btnLogin1.addEventListener("mouseover",(e) => {
     if(!passwordVerify(user,pass)){
