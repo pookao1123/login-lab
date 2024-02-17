@@ -9,6 +9,9 @@ const btnLogin3 = document.querySelector('.btn-login-3');
 const btnLogin4 = document.querySelector('.btn-login-4');
 
 
+const user = document.getElementById('Username') ;
+const pass = document.getElementById('Password') ;
+
 let angry = 0 ;
 let removedButtons = [];
 
@@ -19,7 +22,6 @@ let isCancel = false ;
 
 
 let user_pass_list = []
-
 
 
 
@@ -42,6 +44,17 @@ function swapBtn(btn1,btn2) {
 }
 
 
+function passwordVerify(user,pass){
+    for(let i = 0 ; i < user_pass_list.length ; i += 1){
+        if(user_pass_list[i].user === user.value && user_pass_list[i].pass === pass.value){
+            return true ;    
+        }else{
+            return false ;
+        }
+    }
+}
+
+
 function trigger_animation(id){
     document.getElementById(id).animate(
         [
@@ -53,6 +66,20 @@ function trigger_animation(id){
     )
 }
 
+function trigger_animationem(em){
+    em.animate(
+        [
+            {transform: 'rotate(0deg)'},
+            {transform: 'rotate(5deg)'},
+            {transform: 'rotate(-5deg)'},
+            {transform: 'rotate(0deg)'}  
+        ],  {duration : 100 }
+    )
+}
+
+
+
+
 function event_login() {
     if(isRegister){
         document.getElementById("head-title").innerHTML = "LOGIN" ;
@@ -60,37 +87,21 @@ function event_login() {
         isLogin = true ;
         trigger_animation("head-title");
     }
-    const user = document.getElementById("Username");
-    const pass = document.getElementById("Password");
     let tmp_user = "" , tmp_pass = "" ;
     tmp_user = user.value ;
     tmp_pass = pass.value ;
     if(tmp_user === Default_user && tmp_pass === Default_pass){
         alert("password Corrected!!")
     }
-    else{
-        trigger_animation("meme-1");
-        document.getElementById("meme-1").style.scale = angry + 1 ;
-        angry += 0.1 ;
-    }
-    for(let i = 0 ; i < user_pass_list.length ; i += 1){
-        if(user_pass_list[i].user === user.value && user_pass_list[i].pass === pass.value){
-            alert("password Corrected!!");
-            break ;
-        }else{
-            trigger_animation("meme-1")
-            document.getElementById("meme-1").style.scale = angry + 1 ;
-            angry += 0.1 ;
-            alert("password incorrect!!");
-            break ;
-        }
+    else if(passwordVerify(user,pass)){ // BUG
+        alert("password Corrected!!");
+    }else{
+        trigger_animation("meme-1")
     }
     user.value = "" , pass.value = "" ;
 }
 
 function event_Register() {
-    const user = document.getElementById('Username') ;
-    const pass = document.getElementById('Password') ;
     user.value = "" , pass.value = "";
     if(isLogin){
         document.getElementById("head-title").innerHTML = "Register"
@@ -102,8 +113,6 @@ function event_Register() {
 }
 
 function event_Cancel() {
-    const user = document.getElementById('Username') ;
-    const pass = document.getElementById('Password') ;
     user.value = "" , pass.value = "";
     if(isRegister){
         document.getElementById("head-title").innerHTML = "LOGIN" ;
@@ -115,8 +124,6 @@ function event_Cancel() {
 }
 
 function event_Confirm() {
-    const user = document.getElementById('Username') ;
-    const pass = document.getElementById('Password') ;
     let usRegis = {}
     let isRepeated = false ;
     if(isRegister){
@@ -144,5 +151,17 @@ function event_Confirm() {
         }
     }
 }
+
+
+btnLogin1.addEventListener("mouseover",(e) => {
+    if(!passwordVerify(user,pass)){
+        e.target.classList.add("btn-login-1-invalid");
+        e.target.classList.remove("btn-login-1");
+        trigger_animationem(e.target);
+    }else{
+        e.target.classList.add("btn-login-1");
+        e.target.classList.remove("btn-login-1-invalid");
+    }
+})
 
 removeBtn(btnLogin3,btnLogin4);

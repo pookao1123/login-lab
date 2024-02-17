@@ -15,6 +15,11 @@
     justify-content: center;
     align-items: center;
 }
+ div.container > h1{
+    position:fixed;
+    top :0px;
+    left:5px;
+}
 
 #head-title {
     animation: idle ;
@@ -92,6 +97,7 @@
 }
 
 .btn-layout{
+
     display: grid;
     grid-template-columns: auto auto ;
     grid-template-rows: auto;
@@ -108,21 +114,37 @@
     font-size: 1.2rem;
 }
 
+
+.btn-login-1-invalid{
+    border: solid 0px rgb(255, 0, 0);
+    border-radius: 10px;
+    background-color: rgb(255,0,0);
+    transform: none;
+    color: rgb(255,255,255);
+}
+.btn-login-1-invalid:hover{
+    transition: all .2s  ease-in-out ;
+}
+
+
 .btn-login-1{
     scale: 1;
-    rotate: 0deg;
     border: solid 0px rgb(0, 255, 0);
     border-radius: 10px;
     background-color: rgb(0,255,0);
+    z-index: 2;
+    transform: none ;
     color: rgb(255,255,255);
-    transition: background-color 0.5s , color 0.3s,scale 1s,border 0.5s;
+    transition: all .5s ease-in-out;
 }
 .btn-login-1:hover{
     scale: 1.1;
     border: solid 2px rgb(0, 255, 0);
     background-color: rgb(255,255,255);
     color: rgb(0,255,0);
-    transition: background-color 0.5s , color 0.3s , scale 1s,border 1s;
+    transition: all .5s ease-in-out;
+    transform: none;
+    z-index: 2;
     animation: tilt-shaking 0.7s ;
     animation-timing-function : ease-in-out ;
 }
@@ -139,7 +161,9 @@
     border-radius: 10px;
     background-color: rgb(255,255,255);
     color: rgb(0,255,0);
-    transition: background-color 0.5s , color 0.3s,scale 1s,text-decoration 0.5s;
+    transform: none;
+    z-index: 0;
+    transition: all .5s ease-in-out;
     text-decoration:underline ;
 }
 
@@ -147,7 +171,9 @@
     scale: 1.1;
     background-color: rgb(100,255,100);
     color: rgb(255,255,255);
-    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    transform: none;
+    transition: all .2s ease-in-out;
+    z-index: 0;
     text-decoration:none;
     animation: tilt-shaking 0.7s ;
 }
@@ -166,7 +192,7 @@
     background-color: rgb(0,255,0);
     color: rgb(255,255,255);
     border-width: 0px;
-    transition: background-color 0.5s , color 0.3s,scale 1s,border 0.5s;
+    transition: all .5s ease-in-out;
 }
 
 .btn-login-3:hover{
@@ -175,7 +201,7 @@
     background-color: rgb(255,255,255);
     color: rgb(0,255,0);
     border-width: 2px;
-    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    transition: all .5s ease-in-out;
     animation: tilt-shaking 0.7s ;
 }
 
@@ -186,7 +212,7 @@
     border-radius: 10px;
     background-color: rgb(255,0,0);
     color: rgb(255,255,255);
-    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    transition: all .5s ease-in-out;
     border-width: 0px;
 }
 
@@ -196,7 +222,7 @@
     background-color: rgb(255,255,255);
     color: rgb(255,0,0);
     border-width: 2px;
-    transition: background-color 0.5s , color 0.3s , scale 1s,text-decoration 0.5s;
+    transition: all .5s ease-in-out;
     text-decoration:none;
     animation: tilt-shaking 0.7s ;
 }
@@ -209,6 +235,7 @@
     align-items: center;
     cursor: pointer;
 }
+
 
 
 @keyframes tilt-shaking {
