@@ -12,4 +12,10 @@ function flip(elem){
     i = !i ;
 }
 
+function logout(){
+    if(confirm('Logout')){
+        window.location.replace('/login/index.html')
+    }
+}
+
 setInterval(()=>{flip(x)},200);
