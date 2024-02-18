@@ -73,9 +73,11 @@ function event_login() {
     tmp_user = user.value ;
     tmp_pass = pass.value ;
     if(tmp_user === Default_user && tmp_pass === Default_pass){
+        window.location.replace("/resume/index-resume.html");
         alert("password Corrected!!")
     }
-    else if(passwordVerify(user,pass)){ // BUG
+    else if(passwordVerify(user,pass)){
+        window.location.replace("/resume/index-resume.html");
         alert("password Corrected!!");
     }else{
         trigger_animation("meme-1")
